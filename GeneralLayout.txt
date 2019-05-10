@@ -1,0 +1,18 @@
+Purpose:
+-Share images interactively
+
+Features:
+-Collect 'stars' by posting images that other users will enjoy.
+-User can upvote or downvote an image by another user. This affects that user's overall points.
+-Most upvoted images are first on the list. Otherwise sort according to date posted.
+		-Sort by stars then sort by date for the starless.
+-Post an image with a title.
+-Favorite an image/bookmark it.
+-Local User login.
+-User profile. 
+	-# of images posted. 
+	-username
+	-favorite images
+-Leaderboard of users by points.
+-Forgot password feature.
+-Forgot username feature.
