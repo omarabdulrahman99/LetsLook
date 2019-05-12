@@ -13,6 +13,32 @@ Features:
 	-# of images posted. 
 	-username
 	-favorite images
+	-profile image
+	-About me info.
+	-Join Date
+	-Online Status
+	
+-Chat section of all users. =D
+-Private messaging.
 -Leaderboard of users by points.
 -Forgot password feature.
 -Forgot username feature.
+
+
+
+
+Fav an image -> take that image link, search for it in Images DB, take its ObjectId, push it into favimages in User.
+to get them all, simply query your currentuser and return favimages. just populate in find execution.
+ex.) Story.
+  findOne({ title: 'Casino Royale' }).
+  populate('author').
+  exec(function (err, story) {
+    if (err) return handleError(err);
+    console.log('The author is %s', story.author.name);
+    // prints "The author is Ian Fleming"
+  });
+
+
+
+
+Myimages -> get currentuser's objectId > Query all images by userObjectId > return array of links.
