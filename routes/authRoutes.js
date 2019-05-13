@@ -6,6 +6,11 @@ const User = mongoose.model("User");
 module.exports = app => {
 
 
+	app.get("/api/current_user", (req, res) => {
+	    res.send(req.user);
+	  });
+
+
 
 	app.post("/auth/login",
 		passport.authenticate('local'),
@@ -16,6 +21,21 @@ module.exports = app => {
 		      res.send({user:req.user}); //zzz must fix later
 
 		})
+
+
+	app.get("/auth/logout", (req, res) => {
+	    var envir = process.env.NODE_ENV || "dev";
+	    var redir = "";
+	    if (envir != "dev") {
+	      redir = "/";
+	    } else {
+	      redir = "http://localhost:3000";
+	    }
+
+	    req.logout();
+	    res.redirect(redir);
+	  });
+
 
 
 	app.post("/auth/signup", function(req,res){

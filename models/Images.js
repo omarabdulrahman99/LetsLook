@@ -7,8 +7,8 @@ const imageSchema = new Schema({
 	imglink:String,
 	user:{type:RK, ref:'User'},
 	created:{type:Date, default:Date.now},
-	upvotes:Number,
-	downvotes:Number
+	upvotes:[{type:RK, ref:'User'}],
+	downvotes:[{type:RK, ref:'User'}]
 
 
 })

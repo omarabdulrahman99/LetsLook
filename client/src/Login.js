@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import  { withRouter } from 'react-router-dom';
+import {ContextOne} from "./ContextOne";
+
 
 function Login(props){
 
@@ -8,13 +10,15 @@ function Login(props){
 	const [username,setUsername] = useState('');
 	const [password,setPassword] = useState('');
 
+	let {state,dispatch} = React.useContext(ContextOne);
 
 	async function login(){
 		const loginres = await axios.post('/auth/login',{username,password});
 		const user = loginres.data.user;
 		if(user){
 
-			props.history.push("/")
+			dispatch({type:"setuser", payload:user})
+			props.history.push("/");
 		}
 
 	}
@@ -49,8 +53,8 @@ function Login(props){
 					<span className="lwhighlight"><a className="textDec" href="">Did you forget your password?</a></span>
 				</div>
 				<input id="user" className="loginuser" type="text" placeholder="Username" value={username} onChange={onChange} required maxLength="25"></input>
-				<input id="pass" className="loginpass" type="text" placeholder="Password" value={password} onChange={onChange} required maxLength="25"></input>
-				<button className="btn-gradbrown" onClick={login}>Continue</button>
+				<input id="pass" className="loginpass" type="password" placeholder="Password" value={password} onChange={onChange} required maxLength="25"></input>
+				<button className="btn-gradbrown" type="submit" onClick={login}>Continue</button>
 				<div className="loginwelcome">
 					Not a member?  
 					<span className="lwhighlight"><a className="textDec" href="/signup">Join now!</a></span>

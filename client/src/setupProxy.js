@@ -28,4 +28,13 @@ module.exports = function(app) {
 		})
 	);
 
+	app.use(
+		proxy("/auth/logout", {
+			target: "http://localhost:9000",
+			changeOrigin: true
+		})
+	);
+
+	
+
 };

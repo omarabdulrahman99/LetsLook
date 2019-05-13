@@ -23,7 +23,7 @@ Features:
 -Leaderboard of users by points.
 -Forgot password feature.
 -Forgot username feature.
-
+-Follow a user, shows list of meme uploads by your favorite uploaders.
 
 
 
